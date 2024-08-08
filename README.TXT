@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------
-    *** SPASS v1.3 ***
+    *** SPASS v1.4 ***
                                                            (c)1995 'marikaz'
 -----------------------------------------------------------------------------
 
@@ -69,23 +69,25 @@ Jesli nie, wykonuje przewidziany na taka okolicznosc kod.
         Bledne haslo
 
 Po wpisaniu nieprawidlowego hasla program uniemozliwia dalsze korzystanie
-z komputera.
-
+z komputera. 
+SPASS w wersji 1.4 sprawdza wielkosc pliku z 'zaszyfrowanym' haslem
+i w razie stwierdzenia niezgodnosci wykona kod, jaki przewidzino
+dla blednego hasla.
 
 KOMPATYBILNOSC
 --------------
 
 Program zostal napisany na maszyne fizyczna i na takiej zostal sprawdzony
-i poprawnie dzialal (ver. 1.1)
+i poprawnie dzialal (ver. 1.1):
 
-- MS-DOS v5.0+
+ - MS-DOS v5.0+
 
-Na VirtualBox zostal przetestowany po wprowadzeniu poprawek (ver. 1.3)
+Na VirtualBox zostal przetestowany po wprowadzeniu poprawek (ver. 1.4)
 
-- MS-DOS v5.0+
-- FreeDOS v1.3
-- Caldera DR-DOS v7.03
+ - MS-DOS v5.0+
+ - FreeDOS v1.3
+ - Caldera DR-DOS v7.03
 
-Emulator
+Emulator (SPASS ver. 1.4)
 
-- DOSBox v0.74-3  - skompilowano aktualna wersje.
+ - DOSBox v0.74-3  - skompilowano aktualna wersje.
