@@ -1,5 +1,5 @@
 ;----------------------------------------------------------------------------
-; *** SPASS ver. 1.3 ***  MOD2401 *** (c)1995 'marikaz'
+; *** SPASS ver. 1.4 ***  MOD2401 *** (c)1995 'marikaz'
 ;----------------------------------------------------------------------------
 
 _TEXT SEGMENT WORD PUBLIC 'CODE'
@@ -54,9 +54,11 @@ begin:
             mov bx,ax
             mov ah,3fh
             lea dx,fData
-            mov cx,MAXPWLENGTH
+            mov cx,-1
             int 21h
             jc fError
+            cmp ax,MAXPWLENGTH
+            jne wrongPWD  ;ktos majstrowal przy pliku?
 
             mov ah,3eh
             int 21h
