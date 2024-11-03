@@ -1,5 +1,8 @@
 ;----------------------------------------------------------------------------
-; *** SPASS ver. 1.4 ***  MOD2401 *** (c)1995 'marikaz'
+; *** SPASS ver. 1.4a *** MOD2411 *** (c)1995 'marikaz'
+;
+; UWAGA!
+; Pod DOSBox nalezy kompilowac z flaga /dDOSBOX
 ;----------------------------------------------------------------------------
 
 _TEXT SEGMENT WORD PUBLIC 'CODE'
@@ -40,15 +43,22 @@ begin:
             int 10h
             mov cPos,dx
 
+            IFDEF DOSBOX
+            mov ah,4eh       ;poszukaj 'spass.dat'
+            mov cx,11b
+            lea dx,fName
+            int 21h
+            jc getPasswdA
+            ELSE
             mov ax,4300h     ;'spass.dat' sprawdz atrybuty
             lea dx,fName
             int 21h
             jc getPasswdA    ;w ogole nie ma pliku
-
             and cl,11b
             cmp cl,11b       ;ma byc hidden i read-only
             jnz wrongPWD
-
+            ENDIF
+           
             mov ax,3d00h
             lea dx,fName
             int 21h
