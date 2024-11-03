@@ -27,7 +27,7 @@ clrLine     PROC
             mov ah,2
             mov dx,cPos
             int 10h
-            mov ax,920h      ;spacje
+            mov ax,920h
             mov bx,7
             mov cx,80
             int 10h
@@ -40,11 +40,14 @@ begin:
             int 10h
             mov cPos,dx
 
-            mov ah,4eh          ;poszukaj 'spass.dat'
+            mov ax,4300h     ;'spass.dat' sprawdz atrybuty
             lea dx,fName
-            mov cx,11b
             int 21h
-            jc getPasswdA
+            jc getPasswdA    ;w ogole nie ma pliku
+
+            and cl,11b
+            cmp cl,11b       ;ma byc hidden i read-only
+            jnz wrongPWD
 
             mov ax,3d00h
             lea dx,fName
@@ -58,7 +61,7 @@ begin:
             int 21h
             jc fError
             cmp ax,MAXPWLENGTH
-            jne wrongPWD  ;ktos majstrowal przy pliku?
+            jne wrongPWD
 
             mov ah,3eh
             int 21h
@@ -199,13 +202,13 @@ fError:
 wrongPWD:
             call clrLine
 
-;---------- OBSLUGA BLEDNEGO HASLA ------------------------
+;---------- OBSLUGA BLEDNEGO HASLA ---------------------
 
-            mov al,0adh   ;wylacz klawiature
+            mov al,0adh    ;wylacz klawiature
             out 64h,al
             jmp $
 
-;----------------------------------------------------------
+;-------------------------------------------------------
 
 fData       DB MAXPWLENGTH DUP (?)
 passw       DB MAXPWLENGTH DUP (?)
