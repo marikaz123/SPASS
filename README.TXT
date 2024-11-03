@@ -69,9 +69,10 @@ Jesli nie, wykonuje przewidziany na taka okolicznosc kod.
         Bledne haslo
 
 Po wpisaniu nieprawidlowego hasla program uniemozliwia dalsze korzystanie
-z komputera. 
-SPASS w wersji 1.4 sprawdza wielkosc pliku z 'zaszyfrowanym' haslem
-i w razie stwierdzenia niezgodnosci wykona kod, jaki przewidzino
+z komputera.
+
+SPASS w wersji 1.4 sprawdza rozmiar oraz atrybuty  pliku z 'zaszyfrowanym'
+haslem i w razie stwierdzenia niezgodnosci wykona kod, jaki przewidzino
 dla blednego hasla.
 
 KOMPATYBILNOSC
